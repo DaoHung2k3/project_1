@@ -1,4 +1,4 @@
- <!-- <?php
+  <?php
 include '../lib/session.php';
 Session::checkSession();
 ?>
@@ -9,36 +9,43 @@ Session::checkSession();
   header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
   header("Cache-Control: max-age=2592000");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../admin/style/css/main.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link href="../style/bootstrap-4.6.1-dist/css/bootstrap.min.css">
-</head>
-<body>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+
+  </head>
+  <body>
         <div class="container-xl">
                 <div class="header">
-                        <div class="logo-header clear">
-                                <img src="./style/img/header/logo-header.png" alt="">
-
-                                <div class="title-header">
-                                        <h1>Trang admin</h1>
-                                        <p>project bán hàng với php</p>
-                                </div>
+                        <div class="logo-header2 d-inline-block position-relative">
+                                <img class="img" src="../admin/style/img/header/logo-header.png" alt="">
+                        </div>
+                        
+                        <div class="title-header text-white d-inline-block position-absolute ml-4">
+                                <h1>Trang admin</h1>
+                                <p>project bán hàng với php</p>
                         </div>
 
-                        <div class="logout clear">
-                                <ul class="logout-right">
+                        <div class="logout float-right .clear w-auto text-white">
+                                <ul class="logout-right list-unstyled">
                                         <li>
                                                 <i class='bx bx-user'></i>
                                         </li>
-                                        <li>Xin Chào <?php echo Session::get('adminName'); ?> </li> 
+                                        <li>Xin Chào 
+                                               <b><?php echo Session::get('adminName'); ?> </b>
+                                        </li> 
                                         
                                         <li> | </li>
 
@@ -50,48 +57,18 @@ Session::checkSession();
                                         <li><a href="?action=logout">Đăng Xuất</a></li>
                                 </ul>
                         </div> 
-                        
-                        <div class="container-xl ">
-                                <ul class="menu-header">
-                                    <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
-                                    <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
-                                    <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
-                                    <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
-                                    <li class="ic-charts"><a href=""><span>Visit Website</span></a></li>
+                </div>
+
+                <div class="main">
+                        <div class="nav"> 
+                                <ul>
+                                        <li><a href="#">Thêm giỏ hàng</a></li>
+                                        <li><a href="#">Xoá giỏ hàng</a></li>
+                                        <li><a href="#">Cấp quyền cho thành viên</a></li>
                                 </ul>
-                            </div>
-                        </div>
-
-                <div class="slider">
-
-                </div>
-        </div>
-</body>
-<script src="../style/bootstrap-4.6.1-dist/js/bootstrap.min.js">
-        
-</script>
-</html> -->
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../admin/style/css/style.css">
-
-  </head>
-  <body>
-        <div class="container-xl">
-                <div class="header">
-                        <div class="logo-header d-inline-block">
-                                <img src="../admin/style/img/header/logo-header.png" alt="">
                         </div>
                 </div>
+                
         </div>
     
   </body>

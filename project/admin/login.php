@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="style/css/login.css" rel="stylesheet">
+    <link href="../admin/style/css/login.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -48,21 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 <input type="submit" value="Log in" class="w-100 rounded"/>
                             </div>
                 </form>
-                <!-- form -->
-                <!-- <form action="login.php" method="post">
-                        <h1 class="text-warning">Admin Login</h1>
-                         
-
-                        <div>
-                            <input type="text" placeholder="Username" required="" name="adminUser"/>
-                        </div>
-                        <div>
-                            <input type="password" placeholder="Password" required="" name="adminPass"/>
-                        </div>
-                        <div>
-                            <input type="submit" value="Log in" />
-                        </div>
-                </form> -->
+                
             </div>
     </div>
     <!-- Optional JavaScript -->
