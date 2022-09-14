@@ -1,6 +1,5 @@
 <?php
  include 'inc/header.php';
- include 'inc/slider.php';
 ?>
 
  <div class="main">
@@ -19,7 +18,7 @@
 							</tr>
 							<tr>
 								<td>Product Title</td>
-								<td><img src="images/new-pic3.jpg" alt=""/></td>
+								<td><img src="images/Giay/G_1.png" alt=""/></td>
 								<td>Tk. 20000</td>
 								<td>
 									<form action="" method="post">
@@ -33,7 +32,7 @@
 							
 							<tr>
 								<td>Product Title</td>
-								<td><img src="images/new-pic3.jpg" alt=""/></td>
+								<td><img src="images/Giay/G_2.png" alt=""/></td>
 								<td>Tk. 20000</td>
 								<td>
 									<form action="" method="post">
@@ -47,7 +46,7 @@
 							
 							<tr>
 								<td>Product Title</td>
-								<td><img src="images/new-pic3.jpg" alt=""/></td>
+								<td><img src="images/Giay/G_3.png" alt=""/></td>
 								<td>Tk. 20000</td>
 								<td>
 									<form action="" method="post">
@@ -60,7 +59,7 @@
 							</tr>
 							<tr>
 								<td>Product Title</td>
-								<td><img src="images/new-pic3.jpg" alt=""/></td>
+								<td><img src="images/Giay/G_4.jpg" alt=""/></td>
 								<td>Tk. 20000</td>
 								<td>
 									<form action="" method="post">
@@ -70,22 +69,7 @@
 								</td>
 								<td>Tk. 40000</td>
 								<td><a href="">X</a></td>
-							</tr>
-							
-							<tr>
-								<td>Product Title</td>
-								<td><img src="images/new-pic3.jpg" alt=""/></td>
-								<td>Tk. 20000</td>
-								<td>
-									<form action="" method="post">
-										<input type="number" name="" value="1"/>
-										<input type="submit" name="submit" value="Update"/>
-									</form>
-								</td>
-								<td>Tk. 40000</td>
-								<td><a href="">X</a></td>
-							</tr>
-							
+							</tr>						
 						</table>
 						<table style="float:right;text-align:left;" width="40%">
 							<tr>

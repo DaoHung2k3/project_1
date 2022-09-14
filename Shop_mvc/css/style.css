@@ -41,10 +41,7 @@ body{
 	float:left;
 	width:33%;
 }
-.header_top > .logo > a > img{
-	width: 150px;
-	height: 150px;
-}
+
 /**** Header Top Right ****/
 .header_top_right{
 	float:left;
