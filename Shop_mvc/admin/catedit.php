@@ -2,18 +2,23 @@
 <?php include 'inc/sidebar.php';?>
 <?php include '../classes/category.php'?>
 <?php
+$cat = new category();
 if(isset($_GET['catid']) && $_GET['catid']!=NULL){
     $id = $_GET['catid'];
 }
-$cat = new category();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	$catName = $_POST['catName'];
+	$updateCat = $cat->update_category($catName,$id); 
+}
+
 ?>
         <div class="grid_10">
             <div class="box round first grid">
                 <h2>Sửa Danh Mục</h2>
                <div class="block copyblock"> 
                <?php
-                if(isset($insertCat)){
-                    echo $insertCat;
+                if(isset($updateCat)){
+                    echo $updateCat;
                 }
                 ?>
                 <?php
@@ -21,7 +26,7 @@ $cat = new category();
                     if($get_cate_name){
                         while($result = $get_cate_name->fetch_assoc()){  
                 ?> 
-                 <form action="catadd.php" method="POST">
+                 <form action="" method="POST">
                     <table class="form">					
                         <tr>
                             <td>
