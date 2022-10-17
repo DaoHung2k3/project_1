@@ -3,11 +3,26 @@
 
 <?php include '../classes/brand.php';?>
 <?php include '../classes/category.php';?>
+<?php include '../classes/product.php';?>
+
+<?php
+$pd = new  product();
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+	
+	$insertProduct = $pd->insert_product($_POST,$_FILES); 
+}
+?>
+
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Thêm sản phẩm</h2>
-        <div class="block">               
-         <form action="" method="post" enctype="multipart/form-data">
+        <div class="block">  
+                <?php
+                if(isset($insertProduct)){
+                    echo $insertProduct;
+                }
+                ?>              
+         <form action="productadd.php" method="post" enctype="multipart/form-data">
             <table class="form">
                
                 <tr>
