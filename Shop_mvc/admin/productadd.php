@@ -1,82 +1,108 @@
 ﻿<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
+
+<?php include '../classes/brand.php';?>
+<?php include '../classes/category.php';?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Add New Product</h2>
+        <h2>Thêm sản phẩm</h2>
         <div class="block">               
          <form action="" method="post" enctype="multipart/form-data">
             <table class="form">
                
                 <tr>
                     <td>
-                        <label>Name</label>
+                        <label>Tên sản phẩm</label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Product Name..." class="medium" />
+                        <input type="text" name="productName" placeholder="Tên sản phẩm" class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <label>Category</label>
+                        <label>Danh mục</label>
                     </td>
                     <td>
-                        <select id="select" name="select">
-                            <option>Select Category</option>
-                            <option value="1">Category One</option>
-                            <option value="2">Category Two</option>
-                            <option value="3">Category Three</option>
+                        <select id="select" name="category">
+                            <option>-----Chọn danh mục-----</option>
+                            <?php 
+                            $cat = new category();
+                            $catlist = $cat->show_category();
+                            if($catlist){
+                                while($result = $catlist->fetch_assoc()){   
+                            
+                            ?> 
+
+                            <option value="<?php echo $result['catId']?>"><?php echo $result['catName']?></option>
+
+                            <?php 
+                                }
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <label>Brand</label>
+                        <label>Thương hiệu</label>
                     </td>
                     <td>
-                        <select id="select" name="select">
-                            <option>Select Brand</option>
-                            <option value="1">Brand One</option>
-                            <option value="2">Brand Two</option>
-                            <option value="3">Brand Three</option>
+                        <select id="select" name="brand">
+                            <option>-----Chọn thương hiệu-----</option>
+                            <?php 
+                            $brand = new brand();
+                            $brandlist = $brand->show_brand();
+                            if($brandlist){
+                                while($result = $brandlist->fetch_assoc()){   
+                            
+                            ?> 
+
+                            <option value="<?php echo $result['brandId']?>"><?php echo $result['brandName']?></option>
+
+                            <?php 
+                                }
+                            }
+                            ?>
+                            
                         </select>
                     </td>
                 </tr>
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
-                        <label>Description</label>
+                        <label>Mô tả sản phẩm</label>
                     </td>
                     <td>
-                        <textarea class="tinymce"></textarea>
+                        <textarea class="tinymce"  name="product_desc"></textarea>
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <label>Price</label>
+                        <label>Giá</label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Price..." class="medium" />
+                        <input type="text" name="price" placeholder="Giá sản phẩm" class="medium" />
                     </td>
                 </tr>
             
                 <tr>
                     <td>
-                        <label>Upload Image</label>
+                        <label>Ảnh</label>
                     </td>
                     <td>
-                        <input type="file" />
+                        <input type="file"  name="image"/>
                     </td>
                 </tr>
 				
 				<tr>
                     <td>
-                        <label>Product Type</label>
+                        <label>Loại sản phẩm</label>
                     </td>
                     <td>
-                        <select id="select" name="select">
-                            <option>Select Type</option>
-                            <option value="1">Featured</option>
-                            <option value="2">Non-Featured</option>
+                        <select id="select" name="type">
+                            <option>Chọn loại sản phẩm</option>
+                            <option value="1">Nổi bật</option>
+                            <option value="0">Không nổi bật</option>
                         </select>
                     </td>
                 </tr>
@@ -84,7 +110,7 @@
 				<tr>
                     <td></td>
                     <td>
-                        <input type="submit" name="submit" Value="Save" />
+                        <input type="submit" name="submit" Value="Lưu" />
                     </td>
                 </tr>
             </table>

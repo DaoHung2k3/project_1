@@ -2,8 +2,8 @@
 
 <?php
  
-include '../lib/database.php';
-include '../helpers/format.php';
+include_once '../lib/database.php';
+include_once '../helpers/format.php';
 ?>
 
 
