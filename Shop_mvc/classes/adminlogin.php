@@ -1,11 +1,16 @@
 
 
 <?php
-include '../lib/session.php';
 
+$filepath = realpath(dirname(__FILE__));
+
+include_once ($filepath.'/../lib/database.php');
+include_once ($filepath.'/../helpers/format.php');
+
+
+include_once ($filepath.'/../lib/session.php');
 session::checkLogin();
-include '../lib/database.php';
-include '../helpers/format.php';
+
 ?>
 
 

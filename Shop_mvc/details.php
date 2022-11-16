@@ -3,20 +3,34 @@
  
 ?>
 
+<?php
+if(isset($_GET['proid']) && $_GET['proid']!=NULL){
+    $id = $_GET['proid'];
+}
+?>
+
  <div class="main">
     <div class="content">
     	<div class="section group">
+
+		<?php
+			$get_product_details = $product->get_details($id);
+
+			if($get_product_details){
+				while($result_details = $get_product_details->fetch_assoc()){
+			
+		?>
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
 						<img src="images/Giay/G_4.jpg" alt="" />
 					</div>
 				<div class="desc span_3_of_2">
-					<h2>Lorem Ipsum is simply dummy text </h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>					
+					<h2><?php echo $result_details['productName'] ?> </h2>
+					<p><?php echo $fm->textShorten( $result_details['product_desc'], 100) ?> </p>					
 					<div class="price">
-						<p>Giá: <span>$500</span></p>
-						<p>Loại: <span>Giày</span></p>
-						<p>Nhãn Hiệu:<span>NIKE</span></p>
+						<p>Giá: <span><?php echo $result_details['price'] .""."VND"?> </span></p>
+						<p>Loại: <span><?php echo $result_details['catName'] ?> </span></p>
+						<p>Nhãn Hiệu:<span><?php echo $result_details['brandName'] ?> </span></p>
 					</div>
 				<div class="add-cart">
 					<form action="cart.php" method="post">
@@ -27,16 +41,19 @@
 			</div>
 			<div class="product-desc">
 			<h2>Thông Tin Chi tiết sản phẩm</h2>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-	    </div>
-				
+			<p><?php echo $fm->textShorten( $result_details['product_desc'], 300) ?> </p>	
+	    </div>		
 	</div>
+
+	<?php
+			}
+		}
+	?>
 				<div class="rightsidebar span_3_of_1">
 					<h2>Danh Mục Sản Phẩm</h2>
 					<ul>
 				      <li><a href="productbycat.php">Giày Nam</a></li>
-				      <li><a href="productbycat.php">Giày Nữ</a></li>
+				      
     				</ul>
     	
  				</div>
