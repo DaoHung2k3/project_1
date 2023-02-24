@@ -1,11 +1,14 @@
 <?php
  include 'inc/header.php';
- 
 ?>
 
 <?php
 if(isset($_GET['proid']) && $_GET['proid']!=NULL){
     $id = $_GET['proid'];
+} 
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
+	$quantity = $_POST['quantity'];
+	$AddtoCart = $ct->add_to_cart($quantity,$id); 
 }
 ?>
 
@@ -22,26 +25,32 @@ if(isset($_GET['proid']) && $_GET['proid']!=NULL){
 		?>
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
-						<img src="images/Giay/G_4.jpg" alt="" />
+						<img src="admin/uploads/<?php echo $result_details['image'] ?>" alt="" width="100px"/>
 					</div>
 				<div class="desc span_3_of_2">
 					<h2><?php echo $result_details['productName'] ?> </h2>
-					<p><?php echo $fm->textShorten( $result_details['product_desc'], 100) ?> </p>					
+					<p><?php echo $fm->textShorten( $result_details['product_desc'], 200) ?> </p>					
 					<div class="price">
 						<p>Giá: <span><?php echo $result_details['price'] .""."VND"?> </span></p>
 						<p>Loại: <span><?php echo $result_details['catName'] ?> </span></p>
 						<p>Nhãn Hiệu:<span><?php echo $result_details['brandName'] ?> </span></p>
 					</div>
 				<div class="add-cart">
-					<form action="cart.php" method="post">
-						<input type="number" class="buyfield" name="" value="1"/>
-						<input type="submit" class="buysubmit" name="submit" value="Mua"/>
-					</form>				
+					<form action="" method="post">
+						<input type="number" class="buyfield" name="quantity" value="1" min="1"/>
+						<input type="submit" class="buysubmit" name="submit" value="thêm vào giỏ hàng"/>
+						
+					</form>	
+					<?php
+							if(isset($AddtoCart)){
+								echo '<span style="color:red;font-size:18px;">Sản phẩm đã được thêm</span>';
+							}						
+						?>			
 				</div>
 			</div>
 			<div class="product-desc">
 			<h2>Thông Tin Chi tiết sản phẩm</h2>
-			<p><?php echo $fm->textShorten( $result_details['product_desc'], 300) ?> </p>	
+			<p><?php echo $result_details['product_desc'] ?> </p>	
 	    </div>		
 	</div>
 
@@ -52,7 +61,19 @@ if(isset($_GET['proid']) && $_GET['proid']!=NULL){
 				<div class="rightsidebar span_3_of_1">
 					<h2>Danh Mục Sản Phẩm</h2>
 					<ul>
-				      <li><a href="productbycat.php">Giày Nam</a></li>
+						<?php
+						$getall_category = $cat-> show_category_fontend();
+						if($getall_category){
+							while($result_allcat = $getall_category->fetch_assoc()){
+
+							
+						
+						?>
+				      <li><a href="productbycat.php?catid=<?php echo $result_allcat['catId'] ?>"><?php echo $result_allcat['catName'] ?></a></li>
+					  <?php
+							}
+					  	}
+					  ?>
 				      
     				</ul>
     	
@@ -63,5 +84,7 @@ if(isset($_GET['proid']) && $_GET['proid']!=NULL){
 	<?php
 		include 'inc/footer.php';
 	?>
+
+
 
 

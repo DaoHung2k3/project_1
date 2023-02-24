@@ -25,6 +25,7 @@ body{
 	font-family:Arial, Helvetica, sans-serif;
 	background:url(../images/body_bg3.jpg);
 }
+
 .wrap{
 	width:78%;
 	margin:0 auto;
@@ -2475,4 +2476,31 @@ p.terms {
 		width:92%;
 		padding:4%;
 	}
+}
+
+.success{
+	color: green;
+	font-size: 18px;
+}
+.error{
+	color: red;
+	font-size: 18px;
+}
+
+
+.productbycat_none{
+	color: red;
+	font-size: 20px;
+	text-align: center;
+	
+}
+
+input.grey{
+	height: 36px;
+	background: #000;
+	font-size: 15px;
+}
+
+#new-nav a{
+	display: none;
 }
